@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minitalk.h"
+#include "../include/minitalk.h"
 
 void	check_args(int argc, char **argv)
 {

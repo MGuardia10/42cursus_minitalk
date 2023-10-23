@@ -58,11 +58,12 @@ CC		= cc
 FLAGS	= -Wall -Werror -Wextra
 RM		= rm -f
 
+all:		${NAME}
+
 ${NAME}:
 					${CC} -c ${FLAGS} ${FILES} -I ./
 					ar rc ${NAME} ${OBJS}
 
-all:		${NAME}
 
 bonus:		${NAME}
 					${CC} ${FLAGS} -c ${B_FILES} -I ./

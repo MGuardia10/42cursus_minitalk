@@ -10,22 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minitalk.h"
+#include "../include/minitalk.h"
 
 /*
-- Imprimir errores pro la salida de errores.
+- Imprimir errores por la salida de errores.
 
 */
 
 int	main(int argc, char **argv)
 {
 	pid_t	pid;
+	(void)argv;
 
 	if (argc != 1)
 		ft_print_error("Server does not need arguments.");
 	pid = getpid();
 	ft_printf("Server running...\n\n	PID =====> %d\n", pid);
-	ft_printf("\nMESSAGES RECEIVED:\n------------------\n");
+	ft_printf("\nMESSAGES RECEIVED:\n-------------------\n");
 	while (1)
 	{
 		pause();

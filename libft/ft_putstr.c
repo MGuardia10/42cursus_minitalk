@@ -15,9 +15,7 @@
 int	ft_putstr(char *str)
 {
 	int	count;
-	int	flag;
 
-	flag = 0;
 	if (str == NULL)
 		str = "(null)";
 	count = 0;
