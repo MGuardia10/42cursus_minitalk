@@ -35,7 +35,7 @@ all:	$(NAME_S) $(NAME_C)
 
 $(NAME_S):	$(OBJ_S)
 	@make -C libft
-	@echo "$(PINK)Compiling the server.$(CLEAR)"
+	@echo "$(PINK)Compiling the Server.$(CLEAR)"
 	$(CC) $(FLAGS) $(OBJ_S) $(INCLUDE) $(LIBFT) -o $(NAME_S)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
