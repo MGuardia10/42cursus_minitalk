@@ -25,10 +25,11 @@ OBJ_S_BONUS = ${SRC_S_BONUS:.c=.o}
 OBJ_C_BONUS = ${SRC_C_BONUS:.c=.o}
 
 # COMPILER OPTIONS
-CC		= cc
+CC		= gcc
 FLAGS	= -Wall -Werror -Wextra
 INCLUDE = -I include
 RM		= rm -f
+DEBUG = -g -fsanitize=address -shared-libasan
 
 # COLORS
 RED		=	\033[91;1m
@@ -44,14 +45,14 @@ all:	$(NAME_S) $(NAME_C)
 $(NAME_S):	$(OBJ_S)
 	@make -C libft
 	@echo "$(PINK)Compiling the Server.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_S) $(INCLUDE) $(LIBFT) -o $(NAME_S)
+	$(CC) $(FLAGS) $(OBJ_S) $(INCLUDE) $(LIBFT) -o $(NAME_S) $(DEBUG)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 
 $(NAME_C):	$(OBJ_C)
 	@make -C libft
 	@echo "$(PINK)Compiling the Client.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_C) $(INCLUDE) $(LIBFT) -o $(NAME_C)
+	$(CC) $(FLAGS) $(OBJ_C) $(INCLUDE) $(LIBFT) -o $(NAME_C) $(DEBUG)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 bonus:	$(NAME_S_BONUS) $(NAME_C_BONUS)

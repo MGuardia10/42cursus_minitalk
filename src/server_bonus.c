@@ -6,7 +6,7 @@
 /*   By: mguardia <mguardia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:05:51 by mguardia          #+#    #+#             */
-/*   Updated: 2023/10/24 15:30:01 by mguardia         ###   ########.fr       */
+/*   Updated: 2023/10/24 18:54:49 by mguardia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int argc, char **argv)
 	struct	sigaction sa;
 
 	sa.sa_sigaction = &ft_btoa;
+	sa.sa_flags = SA_RESTART;
+	sigemptyset(&sa.sa_mask);
 	if (argc != 1)
 		ft_print_error("Server does not need arguments.");
 	pid = getpid();

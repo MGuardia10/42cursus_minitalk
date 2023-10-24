@@ -6,7 +6,7 @@
 /*   By: mguardia <mguardia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 13:55:55 by mguardia          #+#    #+#             */
-/*   Updated: 2023/10/24 16:03:15 by mguardia         ###   ########.fr       */
+/*   Updated: 2023/10/24 19:57:55 by mguardia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,32 @@ void    ft_success(int signal, siginfo_t *info, void *ucontext)
         printf("Message sent succesfully to PID ===> %d\n", info->si_pid);
 }
 
-void	ft_atob(int pid, char c)
+int	ft_atob(int pid, char c)
 {
-	int i = 0;
+	int i;
+	int flag;
 
+	i = 0;
+	flag = 0;
 	while (i < 8)
 	{
 		if (c & (0x01 << i))
-			kill(pid, SIGUSR1);
+			flag = kill(pid, SIGUSR1);
 		else
-			kill(pid, SIGUSR2);
+			flag = kill(pid, SIGUSR2);
+		if (flag == -1)
+			return (flag);
 		usleep(200);
 		i++;
 	}
+	return (flag);
 }
 
 int	main(int argc, char **argv)
 {
 	int pid;
 	char *msg;
+	int flag;
 	struct	sigaction sa;
 
 	check_args(argc, argv);
@@ -72,7 +79,9 @@ int	main(int argc, char **argv)
 		return (1);
 	while (*msg)
 	{
-		ft_atob(pid, *msg);
+		flag = ft_atob(pid, *msg);
+		if (flag == -1)
+			ft_print_error("Signal couldn´t be sent. Check PID");
 		msg++;
 	}
 	sigaction(SIGUSR1, &sa, NULL);
