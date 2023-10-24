@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <limits.h>
-# include <signal.h>
 # include <stdio.h>
 # include <fcntl.h>
 
