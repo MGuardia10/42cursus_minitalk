@@ -6,7 +6,7 @@
 /*   By: mguardia <mguardia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:29:10 by mguardia          #+#    #+#             */
-/*   Updated: 2023/10/24 20:58:36 by mguardia         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:06:36 by mguardia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int argc, char **argv)
 	int pid;
 	char *msg;
 	int flag;
+	int i;
 
 	//atexit(f);
 	check_args(argc, argv);
@@ -69,16 +70,17 @@ int	main(int argc, char **argv)
 	msg = ft_strjoin(argv[2], "\n");
 	if (!msg)
 		return (1);
-	while (*msg)
+	i = 0;
+	while (msg[i])
 	{
-		flag = ft_atob(pid, *msg);
+		flag = ft_atob(pid, msg[i]);
 		if (flag == -1)
 		{
-			//free(msg);
+			free(msg);
 			ft_print_error("Signal couldn´t be sent. Check PID");
 		}
-		msg++;
+		i++;
 	}
-	//free(msg);
+	free(msg);
 	return (0);
 }

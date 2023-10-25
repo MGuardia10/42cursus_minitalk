@@ -6,7 +6,7 @@
 /*   By: mguardia <mguardia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 13:55:55 by mguardia          #+#    #+#             */
-/*   Updated: 2023/10/24 19:57:55 by mguardia         ###   ########.fr       */
+/*   Updated: 2023/10/25 09:17:35 by mguardia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_atob(int pid, char c)
 			flag = kill(pid, SIGUSR2);
 		if (flag == -1)
 			return (flag);
-		usleep(200);
+		usleep(500);
 		i++;
 	}
 	return (flag);
@@ -69,6 +69,7 @@ int	main(int argc, char **argv)
 	int pid;
 	char *msg;
 	int flag;
+	int i;
 	struct	sigaction sa;
 
 	check_args(argc, argv);
@@ -77,14 +78,18 @@ int	main(int argc, char **argv)
 	msg = ft_strjoin(argv[2], "\n");
 	if (!msg)
 		return (1);
-	while (*msg)
+	i = -1;
+	while (msg[++i])
 	{
-		flag = ft_atob(pid, *msg);
+		flag = ft_atob(pid, msg[i]);
 		if (flag == -1)
-			ft_print_error("Signal couldn´t be sent. Check PID");
-		msg++;
+		{
+			free(msg);
+			ft_print_error("Signal couldn´t be sent. Check PID.");
+		}
 	}
 	sigaction(SIGUSR1, &sa, NULL);
     ft_atob(pid, '\0');
+	free(msg);
 	return (0);
 }

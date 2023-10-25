@@ -29,7 +29,7 @@ CC		= gcc
 FLAGS	= -Wall -Werror -Wextra
 INCLUDE = -I include
 RM		= rm -f
-DEBUG = -g -fsanitize=address -shared-libasan
+DEBUG = -g -fsanitize=address
 
 # COLORS
 RED		=	\033[91;1m
@@ -60,14 +60,14 @@ bonus:	$(NAME_S_BONUS) $(NAME_C_BONUS)
 $(NAME_S_BONUS):	$(OBJ_S_BONUS)
 	@make -C libft
 	@echo "$(PINK)Compiling the Server.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_S_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_S_BONUS)
+	$(CC) $(FLAGS) $(OBJ_S_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_S_BONUS) $(DEBUG)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 
 $(NAME_C_BONUS):	$(OBJ_C_BONUS)
 	@make -C libft
 	@echo "$(PINK)Compiling the Client.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_C_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_C_BONUS)
+	$(CC) $(FLAGS) $(OBJ_C_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_C_BONUS) $(DEBUG)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 %.o: %.c
