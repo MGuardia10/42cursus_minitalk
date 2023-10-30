@@ -6,7 +6,7 @@
 /*   By: mguardia <mguardia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:29:21 by mguardia          #+#    #+#             */
-/*   Updated: 2023/10/24 18:54:51 by mguardia         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:46:03 by mguardia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_btoa(int signal)
 {
-	static int i;
-	static int bit;
+	static int	i;
+	static int	bit;
 
 	if (signal == SIGUSR1)
 		i |= (0x01 << bit);
@@ -30,10 +30,10 @@ void	ft_btoa(int signal)
 
 int	main(int argc, char **argv)
 {
-	pid_t	pid;
-	(void)	argv;
-	struct	sigaction sa;
+	pid_t				pid;
+	struct sigaction	sa;
 
+	(void)argv;
 	sa.sa_handler = &ft_btoa;
 	sa.sa_flags = SA_RESTART;
 	sigemptyset(&sa.sa_mask);

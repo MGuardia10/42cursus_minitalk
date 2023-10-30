@@ -29,7 +29,6 @@ CC		= gcc
 FLAGS	= -Wall -Werror -Wextra
 INCLUDE = -I include
 RM		= rm -f
-DEBUG = -g -fsanitize=address
 
 # COLORS
 RED		=	\033[91;1m
@@ -45,14 +44,14 @@ all:	$(NAME_S) $(NAME_C)
 $(NAME_S):	$(OBJ_S)
 	@make -C libft
 	@echo "$(PINK)Compiling the Server.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_S) $(INCLUDE) $(LIBFT) -o $(NAME_S) $(DEBUG)
+	$(CC) $(FLAGS) $(OBJ_S) $(INCLUDE) $(LIBFT) -o $(NAME_S) 
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 
 $(NAME_C):	$(OBJ_C)
 	@make -C libft
 	@echo "$(PINK)Compiling the Client.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_C) $(INCLUDE) $(LIBFT) -o $(NAME_C) $(DEBUG)
+	$(CC) $(FLAGS) $(OBJ_C) $(INCLUDE) $(LIBFT) -o $(NAME_C)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 bonus:	$(NAME_S_BONUS) $(NAME_C_BONUS)
@@ -60,14 +59,14 @@ bonus:	$(NAME_S_BONUS) $(NAME_C_BONUS)
 $(NAME_S_BONUS):	$(OBJ_S_BONUS)
 	@make -C libft
 	@echo "$(PINK)Compiling the Server.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_S_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_S_BONUS) $(DEBUG)
+	$(CC) $(FLAGS) $(OBJ_S_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_S_BONUS)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 
 $(NAME_C_BONUS):	$(OBJ_C_BONUS)
 	@make -C libft
 	@echo "$(PINK)Compiling the Client.$(CLEAR)"
-	$(CC) $(FLAGS) $(OBJ_C_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_C_BONUS) $(DEBUG)
+	$(CC) $(FLAGS) $(OBJ_C_BONUS) $(INCLUDE) $(LIBFT) -o $(NAME_C_BONUS)
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 %.o: %.c

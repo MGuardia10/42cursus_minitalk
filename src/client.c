@@ -6,11 +6,20 @@
 /*   By: mguardia <mguardia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:29:10 by mguardia          #+#    #+#             */
-/*   Updated: 2023/10/24 22:06:36 by mguardia         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:22:41 by mguardia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
+
+/*
+void	f(void)
+{
+	system("leaks -q client");
+	// EN MAIN
+	atexit(f);
+}
+*/
 
 void	check_args(int argc, char **argv)
 {
@@ -31,8 +40,8 @@ void	check_args(int argc, char **argv)
 
 int	ft_atob(int pid, char c)
 {
-	int i;
-	int flag;
+	int	i;
+	int	flag;
 
 	i = 0;
 	flag = 0;
@@ -50,21 +59,13 @@ int	ft_atob(int pid, char c)
 	return (flag);
 }
 
-/*
-void	f(void)
-{
-	system("leaks -q client");
-}
-*/
-
 int	main(int argc, char **argv)
 {
-	int pid;
-	char *msg;
-	int flag;
-	int i;
+	int		pid;
+	char	*msg;
+	int		flag;
+	int		i;
 
-	//atexit(f);
 	check_args(argc, argv);
 	pid = ft_atoi(argv[1]);
 	msg = ft_strjoin(argv[2], "\n");
@@ -77,7 +78,7 @@ int	main(int argc, char **argv)
 		if (flag == -1)
 		{
 			free(msg);
-			ft_print_error("Signal couldn´t be sent. Check PID");
+			ft_print_error("Signal could not be sent. Check PID.");
 		}
 		i++;
 	}
