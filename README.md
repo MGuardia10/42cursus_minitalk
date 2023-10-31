@@ -1,5 +1,5 @@
 # 42Madrid - minitalk
-The purpose of this project is to code a small data exchange program using UNIX signals. The client receives a string which is sent to the server to be displayed on the standar output. The bonus part supports UNICODE characters and displays a message on the client once the server finish printing the string sent.
+The purpose of this project is to code a small data exchange program using UNIX signals. The client receives a string which is sent to the server and displayed on the standar output. The bonus part supports UNICODE characters and displays a message on the client once the server finish printing the string sent.
 
 ![LINUX](https://img.shields.io/badge/Linux-a?style=for-the-badge&logo=linux&color=grey)
 ![C](https://img.shields.io/badge/C-a?style=for-the-badge&logo=C&color=grey)
