@@ -3,6 +3,7 @@ The purpose of this project is to code a small data exchange program using UNIX 
 
 ![LINUX](https://img.shields.io/badge/Linux-a?style=for-the-badge&logo=linux&color=grey)
 ![C](https://img.shields.io/badge/C-a?style=for-the-badge&logo=C&color=grey)
+![Makefile](https://img.shields.io/badge/Makefile-a?style=for-the-badge&logo=monster&logoColor=orange&color=grey)
 
 You can see the subject [**HERE**](https://github.com/MGuardia10/42cursus/blob/main/subjects/en/minitalk_subject_en.pdf)
 
